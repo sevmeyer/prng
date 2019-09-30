@@ -57,15 +57,14 @@ Two test executables can be compiled with:
 `prng-test-stdout` writes binary data to stdout for [PracRand].
 It has three modes, to test the implementation of sfc64 itself,
 as well as the implementations of the uniform distributions.
-In my test runs, all three modes passed a length of 1TB.
+In my test runs up to 1TB, all three modes passed.
+
+`prng-test-ranges` iterates through a number of seeds and
+values, to test if the uniform distributions are in range.
 
     ./test/prng-test-stdout raw64   | RNG_test stdin64 -tlmax 1TB -multithreaded
     ./test/prng-test-stdout fDist32 | RNG_test stdin32 -tlmax 1TB -multithreaded
     ./test/prng-test-stdout iDist16 | RNG_test stdin16 -tlmax 1TB -multithreaded
-
-`prng-test-ranges` iterates through a number of seeds and
-values, to test if the uniform distributions are in range:
-
     ./test/prng-test-ranges
 
 
